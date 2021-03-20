@@ -1,0 +1,31 @@
+[
+  {
+    "id": 1,
+    "name": "Bike",
+    "Price": 67,
+    "image":
+      "https://toppng.com/uploads/preview/cartoon-motorcycle-vector-png-motorcycle-11562988410whj1dxutp7.png"
+  },
+  {
+    "id": 2,
+    "name": "Car",
+    "Price": 105,
+    "image":
+      "https://library.kissclipart.com/20181213/qjq/kissclipart-red-cartoon-car-clipart-sports-car-clip-art-adb6f6c1b9f0de30.png"
+  },
+  {
+    "id": 3,
+    "name": "Bus",
+    "Price": 55,
+    "image":
+      "https://w7.pngwing.com/pngs/664/672/png-transparent-bus-cartoon-cartoon-bus-cartoon-character-car-school-bus.png"
+  },
+  {
+    "id": 4,
+    "name": "Train",
+    "Price": 45,
+    "image":
+      "https://www.clipartmax.com/png/middle/61-615463_train-free-to-use-clip-art-train-clipart.png"
+  }
+]
+

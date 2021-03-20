@@ -1,0 +1,12 @@
+.transport_box {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 360px;
+  padding-top: 250px;
+}
+.home_back {
+  background: url(../../images/Bg.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

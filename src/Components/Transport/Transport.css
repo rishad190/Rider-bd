@@ -1,0 +1,11 @@
+Button img {
+  width: 60%;
+}
+Button h2 {
+  color: black;
+}
+.data_box Button {
+  height: 200px;
+  background-color: white;
+  margin-right: 15px;
+}
