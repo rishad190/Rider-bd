@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useParams } from "react-router";
 import fakeData from "../fakeData/fakeData.json";
-import Header from "../Header/Header";
 import "./Destination.css";
 
 const Destination = () => {
@@ -27,7 +26,7 @@ const Destination = () => {
     setShow(newData);
   };
   return (
-    <div>
+    <div className="destination_box">
       <Container>
         <Row>
           <Col>

@@ -4,6 +4,18 @@
 .signup_box {
   padding-top: 100px;
 }
+.google_btn button {
+  background-color: white;
+  border: 1px solid black;
+  width: 450px;
+  height: 75px;
+  border-radius: 40%;
+  transition: all linear 0.3s;
+}
+.google_btn button:hover {
+  background-color: lightblue;
+  transition: all linear 0.3s;
+}
 form {
   width: 50%;
   margin: 0 auto;

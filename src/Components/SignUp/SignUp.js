@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { Container } from "react-bootstrap";
 import { Link, useHistory, useLocation } from "react-router-dom";
-import Header from "../Header/Header";
 import "./SignUp.css";
 import firebase from "firebase/app";
 import "firebase/auth";
@@ -37,8 +36,9 @@ const SignUp = () => {
       })
       .catch((error) => {
         // Handle Errors here.
-        var errorCode = error.code;
+
         var errorMessage = error.message;
+        console.log(errorMessage);
 
         // ...
       });
@@ -157,8 +157,10 @@ const SignUp = () => {
               </Link>
             </p>
           </form>
-          <div>
-            <button onClick={googleLogin}>Google sign in</button>
+          <div className="google_btn">
+            <button onClick={googleLogin}>
+              <p>Continue with Google</p>
+            </button>
           </div>
           <p style={{ color: "red" }}>{user.error}</p>
           {user.success && (

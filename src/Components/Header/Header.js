@@ -11,12 +11,18 @@ const Header = () => {
     <div>
       <Container>
         <Navbar expand="lg">
-          <Navbar.Brand href="/home">Riders_Bangladesh</Navbar.Brand>
+          <Link to="/home">
+            <Navbar.Brand href="/home">Riders_Bangladesh</Navbar.Brand>
+          </Link>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto">
-              <Nav.Link href="/home">Home</Nav.Link>
-              <Nav.Link href="/destination">Destination</Nav.Link>
+          <Navbar.Collapse id="basic-navbar-nav justify-content-end">
+            <Nav className="ml-auto">
+              <Link to="/home">
+                <Nav.Link href="/home">Home</Nav.Link>
+              </Link>
+              <Link to="/destination">
+                <Nav.Link href="/destination">Destination</Nav.Link>
+              </Link>
               <Nav.Link href="/blog">Blog</Nav.Link>
               <Nav.Link href="/contact">Contact</Nav.Link>
             </Nav>

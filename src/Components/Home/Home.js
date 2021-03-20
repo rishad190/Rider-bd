@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import fakeData from "../fakeData/fakeData.json";
-import Header from "../Header/Header";
 import Transport from "../Transport/Transport";
 import "./Home.css";
 

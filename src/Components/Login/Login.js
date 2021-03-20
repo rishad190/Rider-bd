@@ -6,12 +6,16 @@ import "./Login.css";
 import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from "../firebase.Config";
+import { useHistory, useLocation } from "react-router";
 
 if (firebase.apps.length === 0) {
   firebase.initializeApp(firebaseConfig);
 }
 const Login = () => {
   const [user, setUser] = useContext(UserContext);
+  const history = useHistory();
+  const location = useLocation();
+  const { from } = location.state || { from: { pathname: "/" } };
 
   const handleBlurSignUp = (e) => {
     let isFormValid = true;
@@ -29,6 +33,35 @@ const Login = () => {
       newUserInfo[e.target.name] = e.target.value;
     }
   };
+
+  const googleLogin = (e) => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then((result) => {
+        const { displayName, email } = result.user;
+        const signInDetails = {
+          name: displayName,
+          email: email,
+          success: true,
+        };
+        setUser(signInDetails);
+        history.replace(from);
+
+        // ...
+      })
+      .catch((error) => {
+        // Handle Errors here.
+
+        var errorMessage = error.message;
+        console.log(errorMessage);
+
+        // ...
+      });
+    e.preventDefault();
+  };
+
   const handleLogin = (e) => {
     if (user.email && user.password) {
       firebase
@@ -40,6 +73,7 @@ const Login = () => {
           newUserInfo.error = "";
           newUserInfo.success = true;
           setUser(newUserInfo);
+          history.replace(from);
 
           // ...
         })
@@ -103,6 +137,11 @@ const Login = () => {
               Forgot <a href="#">password?</a>
             </p>
           </form>
+          <div className="google_btn">
+            <button onClick={googleLogin}>
+              <p>Continue with Google</p>
+            </button>
+          </div>
           {user.success && (
             <p style={{ color: "green" }}>User Login Successfully</p>
           )}
