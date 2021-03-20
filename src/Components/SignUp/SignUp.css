@@ -2,6 +2,7 @@
   box-sizing: border-box;
 }
 .signup_box {
+  padding-top: 100px;
 }
 form {
   width: 50%;

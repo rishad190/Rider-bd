@@ -14,7 +14,6 @@ const Home = () => {
   return (
     <div className="home_back">
       <Container>
-        <Header></Header>
         <div className="transport_box">
           {transport.map((tp) => (
             <Transport data={tp} key={tp.id}></Transport>

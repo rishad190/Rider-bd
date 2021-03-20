@@ -48,3 +48,7 @@
 .forgot-password a {
   color: #167bff;
 }
+
+.login_box {
+  padding-top: 100px;
+}

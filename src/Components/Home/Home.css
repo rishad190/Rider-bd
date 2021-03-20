@@ -10,3 +10,8 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+@media (min-width: 488px) and (max-width: 736px) {
+  .transport_box {
+    flex-wrap: wrap;
+  }
+}

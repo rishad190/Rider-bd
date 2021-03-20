@@ -5,6 +5,9 @@ import Login from "./Components/Login/Login";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import SignUp from "./Components/SignUp/SignUp";
 import { createContext, useState } from "react";
+import Destination from "./Components/Destination/Destination";
+import PrivateRoute from "./Components/PrivateRouter/PrivateRouter";
+import Header from "./Components/Header/Header";
 
 export const UserContext = createContext();
 
@@ -21,6 +24,7 @@ function App() {
     <div className="App">
       <UserContext.Provider value={[user, setUser]}>
         <Router>
+          <Header></Header>
           <Switch>
             <Route path="/home">
               <Home></Home>
@@ -31,6 +35,9 @@ function App() {
             <Route path="/login">
               <Login></Login>
             </Route>
+            <PrivateRoute path="/destination/:transport">
+              <Destination></Destination>
+            </PrivateRoute>
             <Route path="/">
               <Home />
             </Route>

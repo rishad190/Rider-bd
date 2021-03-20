@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { Container } from "react-bootstrap";
 import { UserContext } from "../../App";
-import Header from "../Header/Header";
+import "./Login.css";
+
 import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from "../firebase.Config";
@@ -39,6 +40,7 @@ const Login = () => {
           newUserInfo.error = "";
           newUserInfo.success = true;
           setUser(newUserInfo);
+
           // ...
         })
         .catch((error) => {
@@ -55,7 +57,6 @@ const Login = () => {
   return (
     <div>
       <Container>
-        <Header></Header>
         <div className="login_box">
           <form onSubmit={handleLogin}>
             <h3>Log in</h3>

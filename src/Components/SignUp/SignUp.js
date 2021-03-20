@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import Header from "../Header/Header";
 import "./SignUp.css";
 import firebase from "firebase/app";
@@ -14,6 +14,36 @@ if (firebase.apps.length === 0) {
 
 const SignUp = () => {
   const [user, setUser] = useContext(UserContext);
+  const history = useHistory();
+  const location = useLocation();
+  const { from } = location.state || { from: { pathname: "/" } };
+
+  const googleLogin = (e) => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then((result) => {
+        const { displayName, email } = result.user;
+        const signInDetails = {
+          name: displayName,
+          email: email,
+          success: true,
+        };
+        setUser(signInDetails);
+        history.replace(from);
+
+        // ...
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+
+        // ...
+      });
+    e.preventDefault();
+  };
 
   const handleBlurSignUp = (e) => {
     let isFormValid = true;
@@ -51,6 +81,7 @@ const SignUp = () => {
           newUserInfo.error = "";
           newUserInfo.success = true;
           setUser(newUserInfo);
+          history.replace(from);
           // ...
         })
         .catch((error) => {
@@ -66,7 +97,6 @@ const SignUp = () => {
   return (
     <div>
       <Container>
-        <Header></Header>
         <div className="signup_box">
           <form onSubmit={handleSignUp}>
             <h3>Register</h3>
@@ -127,6 +157,9 @@ const SignUp = () => {
               </Link>
             </p>
           </form>
+          <div>
+            <button onClick={googleLogin}>Google sign in</button>
+          </div>
           <p style={{ color: "red" }}>{user.error}</p>
           {user.success && (
             <p style={{ color: "green" }}>User Created Successfully</p>

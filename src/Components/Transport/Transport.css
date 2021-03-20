@@ -9,3 +9,11 @@ Button h2 {
   background-color: white;
   margin-right: 15px;
 }
+@media (min-width: 488px) and (max-width: 736px) {
+  .data_box Button {
+    margin-bottom: 15px;
+  }
+  Button img {
+    width: 35%;
+  }
+}
